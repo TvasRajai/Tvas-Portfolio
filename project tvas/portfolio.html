@@ -1,0 +1,130 @@
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Download, Mail, Github, Linkedin, ArrowUp, Music, Moon, Sun } from "lucide-react";
+
+export default function NarutoPortfolio() {
+  const [showScroll, setShowScroll] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+  const audio = new Audio("/naruto-lofi.mp3"); // Add your own mp3
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScroll(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const toggleMusic = () => {
+    if (musicPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+    setMusicPlaying(!musicPlaying);
+  };
+
+  return (
+    <div className={`${isDark ? "bg-gray-900 text-gray-100" : "bg-orange-50 text-black"} transition-all duration-300 font-sans relative`}>
+      {/* Floating clouds background */}
+      <div className="absolute inset-0 bg-[url('/clouds.png')] bg-repeat opacity-10 z-0"></div>
+
+      {/* Music + Dark Mode Toggle */}
+      <div className="fixed top-4 right-4 flex gap-4 z-50">
+        <button onClick={toggleMusic} className="p-2 bg-orange-400 rounded-full shadow hover:scale-110">
+          <Music className="w-5 h-5" />
+        </button>
+        <button onClick={() => setIsDark(!isDark)} className="p-2 bg-red-600 text-white rounded-full shadow hover:scale-110">
+          {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+        </button>
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative z-10 bg-orange-500 text-white p-8 flex flex-col items-center justify-center text-center min-h-screen">
+        <motion.h1 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-7xl font-bold">
+          I'm Tvas, <span className="text-black">Future Hokage of Tech</span>
+        </motion.h1>
+        <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="text-2xl md:text-3xl mt-4">
+          Urban Planner | Data Science Enthusiast
+        </motion.h2>
+        <motion.a whileHover={{ scale: 1.1 }} href="/resume.pdf" download className="mt-6 bg-black text-orange-400 px-6 py-2 rounded-full flex items-center gap-2 shadow-md hover:shadow-lg">
+          <Download className="w-4 h-4" /> Download Resume
+        </motion.a>
+      </section>
+
+      {/* About Me */}
+      <section className="relative z-10 p-8 bg-orange-100 border-t-4 border-dashed border-red-500">
+        <h3 className="text-3xl font-bold text-red-600 mb-4">About Me</h3>
+        <div className="bg-white rounded-xl p-6 shadow-md font-mono text-sm md:text-base border border-orange-200">
+          <p>
+            Just like a shinobi studies the art of battle, I study the art of cities, data, and people. From the village of Rameshwaram, I strive to bring harmony between nature and development.
+          </p>
+        </div>
+      </section>
+
+      {/* Projects */}
+      <section className="relative z-10 p-8 bg-white">
+        <h3 className="text-3xl font-bold mb-4 text-orange-600">Projects</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div whileHover={{ scale: 1.02 }} className="p-4 bg-orange-100 rounded-xl shadow-md border border-orange-200 relative">
+            <h4 className="text-xl font-semibold">GCDA Rental Housing</h4>
+            <p className="text-sm mt-2">Analyzed spatial, economic, and feasibility aspects of rental housing in Ernakulam as part of my internship project.</p>
+            <div className="absolute top-2 right-2 animate-ping text-red-500">🗡️</div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="relative z-10 p-8 bg-orange-100">
+        <h3 className="text-3xl font-bold mb-4 text-red-600">Skills</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {['Urban Planning', 'GIS Mapping', 'Data Analysis', 'Python', 'Excel', 'Framer Motion', 'React.js', 'Tailwind CSS'].map((skill, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="bg-white rounded-full px-4 py-2 text-center shadow-md border border-orange-300"
+            >
+              <div>{skill}</div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="relative z-10 p-8 bg-orange-50">
+        <h3 className="text-3xl font-bold mb-4 text-black">Contact</h3>
+        <div className="flex flex-col gap-4 text-md">
+          <p className="flex items-center gap-2">
+            <Mail className="w-4 h-4" /> tvasrajai@email.com
+          </p>
+          <p className="flex items-center gap-2">
+            <Github className="w-4 h-4" /> github.com/tvasrajai
+          </p>
+          <p className="flex items-center gap-2">
+            <Linkedin className="w-4 h-4" /> linkedin.com/in/tvasrajai
+          </p>
+        </div>
+      </section>
+
+      {/* Scroll to top */}
+      {showScroll && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 p-3 bg-orange-600 text-white rounded-full shadow-lg animate-spin hover:scale-110 z-50"
+        >
+          <ArrowUp className="w-5 h-5" />
+        </button>
+      )}
+
+      {/* Footer */}
+      <footer className="relative z-10 text-center text-sm p-4 bg-black text-orange-400">
+        © 2025 S R Tvas Rajai. Hidden Leaf Village inspired.
+      </footer>
+    </div>
+  );
+}
