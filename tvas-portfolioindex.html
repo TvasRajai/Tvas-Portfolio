@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tvas Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="App.css"> <!-- Optional custom CSS file -->
+</head>
+<body class="bg-orange-50 text-gray-900 font-sans">
+  <header class="bg-orange-300 shadow-md p-6 flex justify-between items-center">
+    <h1 class="text-3xl font-bold text-orange-900">Tvas</h1>
+    <nav class="space-x-4">
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#projects" class="hover:underline">Projects</a>
+      <a href="#skills" class="hover:underline">Skills</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+    </nav>
+  </header>
+
+  <section class="text-center py-20 bg-orange-100">
+    <h2 class="text-5xl font-extrabold mb-4 text-orange-700">Hey, I'm Tvas 🍥</h2>
+    <p class="text-xl mb-6">Urban Planner • Data Science Enthusiast • Web Developer</p>
+    <a href="/resume.pdf" class="inline-block mt-4 bg-orange-500 text-white py-2 px-4 rounded-xl hover:bg-orange-600" download>
+      Download Resume
+    </a>
+  </section>
+
+  <section id="about" class="p-10 bg-white">
+    <h3 class="text-3xl font-bold text-orange-800 mb-4">About Me</h3>
+    <p class="text-lg">
+      I’m an Urban Planner with a passion for Data Science and Web Development.
+      I love building tech-enabled planning tools and exploring the spatial
+      dimension of data. I'm also a Naruto fan—so I channel that ninja energy
+      into my work!
+    </p>
+  </section>
+
+  <section id="projects" class="p-10 bg-orange-100">
+    <h3 class="text-3xl font-bold text-orange-800 mb-4">Projects</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h4 class="text-xl font-bold">Urban Data Dashboard</h4>
+        <p class="text-sm">Visualizing planning data using D3 + Leaflet.</p>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h4 class="text-xl font-bold">Rental Housing Analysis</h4>
+        <p class="text-sm">GCDA rental housing feasibility using Python.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="p-10 bg-white">
+    <h3 class="text-3xl font-bold text-orange-800 mb-4">Skills</h3>
+    <ul class="list-disc list-inside text-lg">
+      <li>Urban Planning Tools (GIS, AutoCAD)</li>
+      <li>Python (Pandas, Scikit-learn, Matplotlib)</li>
+      <li>Web Dev (React, TailwindCSS)</li>
+      <li>Data Visualization & Analysis</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="p-10 bg-orange-100">
+    <h3 class="text-3xl font-bold text-orange-800 mb-4">Contact Me</h3>
+    <p class="mb-4">Let’s connect and collaborate!</p>
+    <div class="flex gap-4">
+      <a href="https://github.com/tvasrajai" target="_blank" rel="noreferrer">
+        <svg class="w-6 h-6 text-orange-700 hover:text-orange-900" fill="currentColor" viewBox="0 0 24 24"><path d="..."/></svg>
+      </a>
+      <a href="https://linkedin.com/in/tvasrajai" target="_blank" rel="noreferrer">
+        <svg class="w-6 h-6 text-orange-700 hover:text-orange-900" fill="currentColor" viewBox="0 0 24 24"><path d="..."/></svg>
+      </a>
+    </div>
+  </section>
+
+  <footer class="text-center p-4 bg-orange-300 text-orange-900">
+    © 2025 Tvas Rajai. All rights reserved.
+  </footer>
+</body>
+</html>
